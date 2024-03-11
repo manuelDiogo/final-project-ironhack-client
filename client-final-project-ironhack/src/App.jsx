@@ -1,14 +1,18 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from 'react'
-import Homepage from "./pages/Homepage"
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
-import About from "./pages/About"
-import Error from "./pages/Error"
-import Login from "./pages/Login"
-import Signup from "./pages/Signup"
-import FindDoctor from "./pages/FindDoctor"
-import './App.css'
+import { Box, Container, Heading, Text, Button, Image } from "@chakra-ui/react";
+import Homepage from "./pages/Homepage";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import About from "./pages/About";
+import Error from "./pages/Error";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import FindDoctor from "./pages/FindDoctor";
+import User from "./pages/User";
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
+import './App.css';
 
 function App() {
 
@@ -17,15 +21,17 @@ function App() {
       <Navbar />
       <Routes>
 
-        <Route path="/home" element={<Homepage />} />
+        <Route path="/" element={ <IsAnon> <Homepage /> </IsAnon> } />
 
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={ <IsAnon> <About /> </IsAnon> } />
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={ <IsAnon> <Login /> </IsAnon> } />
 
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<IsAnon> <Signup /> </IsAnon>} />
 
-        <Route path="/finddoctor" element ={<FindDoctor />} />
+        <Route path="/finddoctor" element={<IsPrivate> <FindDoctor /> </IsPrivate> } />
+
+        <Route path="/user" element={<IsPrivate> <User /> </IsPrivate>} /> 
 
         <Route path="*" element={<Error />} />
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Container, Heading, Text, Button, Image } from "@chakra-ui/react";
 
-function Footer () {
+function Error () {
     return (
         <Box>
 
@@ -9,4 +9,4 @@ function Footer () {
     )
 }
 
-export default Footer;
+export default Error;
