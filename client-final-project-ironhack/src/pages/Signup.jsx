@@ -20,23 +20,20 @@ function Signup(props) {
     const handleName = (e) => setName(e.target.value);
     const handleSurname = (e) => setSurname(e.target.value);
 
-
     const handleSignupSubmit = (e) => {
         e.preventDefault();
         // Create an object representing the request body
         const requestBody = { email, password, name, surname };
-    
 
-    axios.post(`${API_URL}/auth/signup`, requestBody)
-        .then(() => {
-            navigate('/login');
-        })
-        .catch((error) => {
-            const errorDescription = error.response.data.message;
-            setErrorMessage(errorDescription);
-        })
+        axios.post(`${API_URL}/auth/signup`, requestBody)
+            .then(() => {
+                navigate('/login');
+            })
+            .catch((error) => {
+                const errorDescription = error.response.data.message;
+                setErrorMessage(errorDescription);
+            })
     }
-
 
     return (
         <div>

@@ -1,8 +1,13 @@
 // src/components/Navbar.jsx
 
-import { Link } from "react-router-dom";
-import { useContext } from "react";                     // <== IMPORT 
-import { AuthContext } from "../context/auth.context";  // <== IMPORT
+
+import { useContext } from "react";                     
+import { AuthContext } from "../context/auth.context";
+
+import { Box, Link, Icon, Container, Badge, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
+import { Link as ReactRouterLink, useNavigate } from "react-router-dom";
+import { useDisclosure } from "@chakra-ui/react";
+
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
@@ -13,16 +18,28 @@ function Navbar() {
   //  Update the rendering logic to display different content 
   //  depending on whether the user is logged in or not
   return (
-    <nav>
-      <Link to="/">
+    <Flex
+    position="fixed"
+            top="0"
+            left="0"
+            right="0"
+            zIndex="999"
+            p={2}
+            bg="#07B8C0"
+            color="black"
+            justifyContent="space-between"
+            alignItems="center"
+    >
+      
+      <Link to="/" as={ReactRouterLink}>
         <button>Home</button>
       </Link>
 
-      {/*    UPDATE     */}
+      
       {isLoggedIn && (
         <>
-          <Link to="/projects">
-            <button>Projects</button>
+          <Link to="/user" as={ReactRouterLink}>
+            <button>User</button>
           </Link>        
           <button onClick={logOutUser}>Logout</button>
         </>
@@ -30,11 +47,11 @@ function Navbar() {
 
       {!isLoggedIn && (
         <>
-          <Link to="/signup"> <button>Sign Up</button> </Link>
-          <Link to="/login"> <button>Login</button> </Link>
+          <Link to="/signup" as={ReactRouterLink}> <button>Sign Up</button> </Link>
+          <Link to="/login" as={ReactRouterLink}> <button>Login</button> </Link>
         </>
       )}
-    </nav>
+    </Flex>
   );
 }
 
