@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Homepage () {
 
     return(
-        <Box>
+        <Box pt="500px">
             <Link to="/finddoctor" >
                 <Text>
                     TODAY

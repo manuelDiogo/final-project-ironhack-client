@@ -1,14 +1,21 @@
 import React from 'react';
-import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-import { Box, Container, Heading, Text, Button, Image, UnorderedList, ListItem, Wrap, Card, Stack, CardBody, CardFooter } from "@chakra-ui/react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/auth.context";
+import { Link as ReactRouterLink, useNavigate } from 'react-router-dom';
+import { Box, Heading, Text, Button, Wrap, Card, Stack, CardBody, CardFooter, Divider } from "@chakra-ui/react";
 import axios from 'axios';
 
 function FindDoctor() {
     const [doctors, setDoctors] = useState([]);
     const [error, setError] = useState(null);
+    const [trigger, setTrigger] = useState(false);
+    const [appointment, setAppointment] = useState([]);
+
+    const { user } = useContext(AuthContext);
 
     const API_URL = "http://localhost:5005"
+
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -26,28 +33,66 @@ function FindDoctor() {
             });
     }, []);
 
+    const createAppointment = (e, docId) => {
+
+        e.preventDefault();
+
+        let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        const today2 = new Date();
+
+        let day = days[today2.getDay()];
+
+        let userId = user._id
+
+        let requestBody = { userId, docId, day }
+
+        axios
+            .post(`${API_URL}/api/appointments`, requestBody)
+            .then((response) => {
+                
+                navigate(`/makeappoint/${response.data}`);
+            })
+            .catch((error) => {
+                setError(error);
+            });
+    }
+
     return (
-        <Box width="100vw" bg="#07B8C0" pb="45px" pt="50px" >
-            <Wrap pt="100px" justify="space-evenly">
+        <Box width="100vw" bg="#07B8C0"  >
+            <Wrap pt="100px" justify="center">
                 {doctors && doctors.map((one) => {
                     return (
                         <Card
                             direction={{ base: 'column', sm: 'row' }}
                             overflow='hidden'
                             variant='outline'
+                            width="900px"
+                            justifyContent='center'
+                            flexWrap='wrap'
+                            alignItems='center'
                         >
                             <Stack>
                                 <CardBody>
-                                    <Heading size='md'>{one.doctor_name}</Heading>
-
+                                    <Heading size='xl'>{one.doctor_name}</Heading>
+                                    <Divider />
                                     <Text py='2'>
-                                        Caffè latte is a coffee beverage of Italian origin made with espresso
-                                        and steamed milk.
+                                        {one.specialty}
+                                    </Text>
+                                    <Text py='2'>
+                                        {one.city}
+                                    </Text>
+                                    <Text py='2'>
+                                        {one.place_of_activity}
+                                    </Text>
+                                    <Text py='2'>
+                                        {one.healthcare_insurance}
                                     </Text>
                                 </CardBody>
-
-                                <CardFooter>
-                                    <Button variant='solid' colorScheme='blue'>
+                                <CardFooter justify="center" >
+                                    <Button width="865px" variant='solid' colorScheme='blue' onClick={(e) => {
+                                        createAppointment(e, one._id);
+                                    }}>
                                         Make an Appointment
                                     </Button>
                                 </CardFooter>

@@ -12,6 +12,7 @@ import FindDoctor from "./pages/FindDoctor";
 import User from "./pages/User";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
+import MakeAppointment from "./pages/MakeAppointment"
 import './App.css';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Navbar />
       <Routes>
 
-        <Route path="/" element={ <IsAnon> <Homepage /> </IsAnon> } />
+        <Route path="/" element={  <Homepage />  } />
 
         <Route path="/about" element={ <IsAnon> <About /> </IsAnon> } />
 
@@ -30,6 +31,8 @@ function App() {
         <Route path="/signup" element={<IsAnon> <Signup /> </IsAnon>} />
 
         <Route path="/finddoctor" element={<IsPrivate> <FindDoctor /> </IsPrivate> } />
+
+        <Route path="/makeappoint/:appointmentsId" element={<MakeAppointment />} />
 
         <Route path="/user" element={<IsPrivate> <User /> </IsPrivate>} /> 
 
