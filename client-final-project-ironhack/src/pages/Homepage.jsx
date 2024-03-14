@@ -11,7 +11,7 @@ function Homepage () {
     let day = days[today2.getDay()];
 
     return (
-        <Box pt="10px" bgColor="blue" height="100vh" position="relative">
+        <Box pt="10px" bgColor="#07B8C0" height="100vh" position="relative">
             <Box position="absolute" left="0" bottom="0">
                 <Image 
                     src={doctor}
