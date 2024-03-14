@@ -11,7 +11,9 @@ function FindDoctor() {
     
     const { user } = useContext(AuthContext);
 
-    const API_URL = "http://localhost:5005"
+    // const API_URL = "http://localhost:5005"
+
+    const API_URL = "https://final-project-ironhack.onrender.com"
 
     const navigate = useNavigate();
 
@@ -55,7 +57,7 @@ function FindDoctor() {
                 setError(error);
             });
     }
-    
+
     return (
         <Box width="100vw" bg="#07B8C0"  >
             <Wrap pt="100px" justify="center">
