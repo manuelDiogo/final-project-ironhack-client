@@ -18,7 +18,7 @@ import './App.css';
 function App() {
 
   return (
-    <Box className="background">
+    <Box >
       <Navbar />
       <Routes>
 
@@ -47,3 +47,4 @@ function App() {
 export default App
 
 // className = "background"
+
