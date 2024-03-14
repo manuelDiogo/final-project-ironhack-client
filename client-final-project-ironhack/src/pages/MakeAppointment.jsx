@@ -16,7 +16,7 @@ function MakeAppointment() {
 
     //const API_URL = "http://localhost:5005"
 
-    const API_URL = "http://final-project-ironhack.onrender.com"
+    const API_URL = "https://final-project-ironhack.onrender.com"
 
     let params = useParams()
 
