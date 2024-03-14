@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Container, Heading, Text, Button, Image } from "@chakra-ui/react";
+import { Box, Text, Button, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import doctor from "../assets/doctor-patient.png"
+import doctor from "../assets/doctor-patient.png";
 
 function Homepage () {
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -10,35 +10,33 @@ function Homepage () {
 
     let day = days[today2.getDay()];
 
-    return(
-        <Box pt="10px">
-        <Image 
-        src= {doctor}
-        style={{ 
-        position: "fixed", 
-        left: 0,
-        bottom: 0,
-        width: "40%",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "50%",
-        paddingTop: "10vw",
-        zIndex: "999"
-      }}/>
-            <Text className = "today"> Today is {day}</Text>
-            <Link to="/finddoctor" >
-                <Text className = "homepagetext">
-                    Get A Doctor
-                </Text>
-                <Button className = "homebutton"colorScheme='teal' size='lg' >
-                    Today
-                </Button>
-            </Link>
+    return (
+        <Box pt="10px" bgColor="blue" height="100vh" position="relative">
+            <Box position="absolute" left="0" bottom="0">
+                <Image 
+                    src={doctor}
+                    style={{ 
+                        width: "40%",
+                        zIndex: "999"
+                    }}
+                />
+            </Box>
+            <Box position="absolute" right="20px" top="50%" transform="translateY(-50%)" color="white">
+                <Text className="today">Today is {day}</Text>
+                <Link to="/finddoctor">
+                    <Text className="homepagetext">
+                        Get A Doctor
+                    </Text>
+                    <Button className="homebutton" colorScheme='teal' size='lg'>
+                        Today
+                    </Button>
+                </Link>
+            </Box>
         </Box>
-    )
-
+    );
 }
 
-export default Homepage
+export default Homepage;
 
 
 
@@ -84,6 +82,49 @@ export default Homepage
 //         </Flex >
 
 //     )
+// }
+
+// export default Homepage
+
+
+// import React from 'react';
+// import { Box, Container, Heading, Text, Button, Image } from "@chakra-ui/react";
+// import { Link } from "react-router-dom";
+// import doctor from "../assets/doctor-patient.png"
+
+// function Homepage () {
+//     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+//     const today2 = new Date();
+
+//     let day = days[today2.getDay()];
+
+//     return(
+//         <Box pt="10px">
+//         <Image 
+//         src= {doctor}
+//         style={{ 
+//         position: "fixed", 
+//         left: 0,
+//         bottom: 0,
+//         width: "40%",
+//         backgroundRepeat: "no-repeat",
+//         backgroundSize: "50%",
+//         paddingTop: "10vw",
+//         zIndex: "999"
+//       }}/>
+//             <Text className = "today"> Today is {day}</Text>
+//             <Link to="/finddoctor" >
+//                 <Text className = "homepagetext">
+//                     Get A Doctor
+//                 </Text>
+//                 <Button className = "homebutton"colorScheme='teal' size='lg' >
+//                     Today
+//                 </Button>
+//             </Link>
+//         </Box>
+//     )
+
 // }
 
 // export default Homepage
