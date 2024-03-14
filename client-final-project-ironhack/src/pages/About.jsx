@@ -1,62 +1,91 @@
-import { Flex, Box, Heading, Text, Button, Wrap, Card, Stack, CardBody, CardFooter, Divider } from "@chakra-ui/react";
+import React from 'react';
+import { Box, Card, CardHeader, CardBody, CardFooter, Text, Button, Image, Stack, Divider, Center, ButtonGroup, Heading, Link } from "@chakra-ui/react";
+import manuelImage from "../assets/manuel.jpg"
+import pedroImage from "../assets/pedro.jpg"
 
-function YourComponent() {
-    return (
-        <Flex height="100vh" alignItems="center" justifyContent="center">
-            <Wrap spacing="30px">
-                <Card
-                    direction={{ base: 'column', sm: 'row' }}
-                    overflow='hidden'
-                    variant='outline'
-                    width="900px"
-                    justifyContent='center'
-                    flexWrap='wrap'
-                >
-                    <Stack>
-                        <CardBody>
-                            <Heading size='xl'>Card 1</Heading>
-                            <Divider />
-                            <Text py='2'>
-                                Some content for card 1
-                            </Text>
-                        </CardBody>
-                        <CardFooter justify="center">
-                            <Button width="850px" variant='solid' colorScheme='blue'>
-                                Make an Appointment
-                            </Button>
-                        </CardFooter>
-                    </Stack>
-                </Card>
+function About() {
+  return (
+    <Box display="flex" mt="50px" justifyContent="center" bg="#08bcc4" pb="200px">
+      <Box
+        display="flex"
+        gap="50px"
+        mt="200px"
+        justifyContent="center"
+      >
+        <Card maxW="lg" maxH="lg">
+          <CardBody>
+            <Stack mt="6" spacing="3">
+              <Heading size="md">Pedro</Heading>
+              <Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ipsam sapiente dignissimos earum et vitae, blanditiis dolor deserunt tenetur harum nam debitis molestias, assumenda, voluptate est fugiat labore. Nostrum, repudiandae.
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <Center>
 
-                <Card
-                    direction={{ base: 'column', sm: 'row' }}
-                    overflow='hidden'
-                    variant='outline'
-                    width="900px"
-                    justifyContent='center'
-                    flexWrap='wrap'
-                >
-                    <Stack>
-                        <CardBody>
-                            <Heading size='xl'>Card 2</Heading>
-                            <Divider />
-                            <Text py='2'>
-                                Some content for card 2
-                            </Text>
-                        </CardBody>
-                        <CardFooter justify="center">
-                            <Button width="850px" variant='solid' colorScheme='blue'>
-                                Make an Appointment
-                            </Button>
-                        </CardFooter>
-                    </Stack>
-                </Card>
-            </Wrap>
-        </Flex>
-    );
+          <Image
+          objectFit='cover'
+          maxW={{ base: '100%', sm: '200px' }}
+          src= {pedroImage} 
+          />
+          </Center>
+          <CardFooter display="flex" justifyContent="center">
+            <ButtonGroup spacing="2">
+              
+              <Link href="https://github.com/plopes86">
+                <Button color="white" backgroundColor='gray'>
+                  Github
+                </Button>
+              </Link>
+              <Link href="https://www.linkedin.com/in/pedro-daniel-dinis-lopes/">
+                <Button colorScheme='linkedin'>
+                  Linkedin
+                </Button>
+              </Link>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+
+        <Card maxW="lg">
+          <CardBody>
+            <Stack mt="6" spacing="3">
+              <Heading size="md">Manuel Tavares</Heading>
+              <Text>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla maiores est impedit! Incidunt distinctio modi, ea cum esse, laboriosam vero vitae alias ipsam ipsa consequatur in odit labore repudiandae sapiente?
+              </Text>
+            </Stack>
+          </CardBody>
+          <Divider />
+          <Center>
+
+          <Image
+          objectFit='cover'
+          maxW={{ base: '100%', sm: '200px' }}
+          src= {manuelImage}
+          />
+          </Center>
+          <CardFooter display="flex" justifyContent="center">
+            <ButtonGroup spacing="2">
+              <Link href="https://github.com/manuelDiogo">
+                <Button color="white" backgroundColor='gray'>
+                  Github
+                </Button>
+              </Link>
+              <Link href="https://www.linkedin.com/in/manuel-tavares-6742a1294/">
+                <Button colorScheme='linkedin'>
+                  Linkedin
+                </Button>
+              </Link>
+            </ButtonGroup>
+          </CardFooter>
+        </Card>
+      </Box>
+    </Box>
+  );
 }
 
-export default YourComponent;
+export default About;
 
 
 
