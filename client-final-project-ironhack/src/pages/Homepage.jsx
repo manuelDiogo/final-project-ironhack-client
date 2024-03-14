@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Container, Heading, Text, Button, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import doctor from "../imagens/doctor-patient.png"
+import doctor from "../assets/doctor-patient.png"
 
 function Homepage () {
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
