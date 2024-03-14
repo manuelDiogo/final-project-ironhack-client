@@ -18,10 +18,10 @@ import './App.css';
 function App() {
 
   return (
-    <Box className="background"
+    <Box 
     >
       <Navbar />
-      <Box >
+     
 
       <Routes>
 
@@ -42,7 +42,7 @@ function App() {
         <Route path="*" element={<Error />} />
 
       </Routes>
-      </Box>
+     
       <Footer />
     </Box>
   )

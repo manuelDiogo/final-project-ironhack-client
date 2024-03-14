@@ -1,4 +1,4 @@
-.LoginPage {
+/* .LoginPage {
   padding-top: 100px;
 }
 
@@ -59,41 +59,41 @@
 .background {
   position: fixed;
   top: 100px; /* Adjusted from margin-top */
-  left: 0;
-  height: calc(100% - 100px); /* Adjusted to account for margin-top */
-  width: 100%;
+  /* left: 0;
+  height: calc(100% - 100px); Adjusted to account for margin-top */
+  /* width: 100%;
   background-repeat: no-repeat;
   background-size: 50%;
   background-color: rgb(8, 188, 196);
   padding-top: 5vw;
   padding-bottom: 30vw;
   z-index: 0;
-}
+} */
 
-.today{
-  position: absolute; /* Adjusted to absolute positioning */
-  top: 20%; /* Adjusted to vertically center */
-  right: 20px; /* Adjusted to move it to the right */
-  transform: translateY(-50%); /* Adjusted to vertically center */
+/* .today{
+  position: absolute; 
+  top: 20%; 
+  right: 20px; 
+  transform: translateY(-50%); 
   font-size: 60px;
   font:bolder;
   color:white;
-}
+} */
 
-.homepagetext {
-  position: absolute; /* Adjusted to absolute positioning */
-  top: 30%; /* Adjusted to vertically center */
-  right: 20px; /* Adjusted to move it to the right */
-  transform: translateY(-50%); /* Adjusted to vertically center */
+/* .homepagetext {
+  position: absolute; 
+  top: 30%; 
+  right: 20px; 
+  transform: translateY(-50%); 
   font-size: 45px;
   color:white;
-}
+} */
 
-.homebutton {
-  position: absolute;  /* Adjusted to absolute positioning */
-  top: 500px; /* Adjusted to vertically center */
-  left: 2100px; /* Adjusted to move it to the left */
-  transform: translateY(-50%); /* Adjusted to vertically center */
+/* .homebutton {
+  position: absolute;  
+  top: 500px; 
+  left: 2100px; 
+  transform: translateY(-50%);
   color: #002922;
   font-size: 150px;
   font-family: 'Lato', sans-serif;
@@ -103,11 +103,11 @@
   box-shadow: 8px 8px 0px #002922;
   transition: all .1s;
   cursor: pointer;
-  padding: 30px; /* Adjusted padding */
-}
+  padding: 30px; 
+} */
 
-body {
+/* body {
   margin: 0;
   padding: 0;
-}
+} */ 
 
