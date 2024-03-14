@@ -18,10 +18,10 @@ import './App.css';
 function App() {
 
   return (
-    <Box 
+    <Box className="background"
     >
       <Navbar />
-      <Box className="main-content" overflowY="auto" height="calc(100vh - 100px)">
+      <Box >
 
       <Routes>
 

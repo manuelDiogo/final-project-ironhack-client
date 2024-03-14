@@ -111,21 +111,3 @@ body {
   padding: 0;
 }
 
-.main-content {
-  background-color: rgb(8, 188, 196);
-  padding-top: 100px; /* Adjusted to accommodate navbar */
-  overflow-y: auto; /* Allow vertical scrolling */
-  height: calc(100vh - 100px); /* Adjusted height to account for navbar */
-}
-
-
-
-
-
-
-
-
-
-
-
-
