@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Container, Heading, Text, Button, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import doctor from "../imagens/doctor-patient.png"
 
 function Homepage () {
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -13,7 +13,7 @@ function Homepage () {
     return(
         <Box pt="10px">
         <Image 
-        src="../imagens/doctor-patient.png" 
+        src= {doctor}
         style={{ 
         position: "fixed", 
         left: 0,
