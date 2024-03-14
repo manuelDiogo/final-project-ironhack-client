@@ -23,9 +23,7 @@ function Homepage () {
         backgroundSize: "50%",
         paddingTop: "10vw",
         zIndex: "999"
-      }}
-             
-             />
+      }}/>
             <Text className = "today"> Today is {day}</Text>
             <Link to="/finddoctor" >
                 <Text className = "homepagetext">
