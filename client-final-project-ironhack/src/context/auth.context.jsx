@@ -1,6 +1,8 @@
 import React, { useState, useEffect, createContext } from "react";
 import axios from "axios";
-const API_URL = "http://localhost:5005";
+//const API_URL = "http://localhost:5005";
+
+const API_URL = "https://final-project-ironhack.onrender.com";
 
 const AuthContext = createContext();
 
