@@ -1,46 +1,127 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
 .LoginPage {
   padding-top: 500px;
 }
+
+.SignupPage {
+  padding-top: 500px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  height: 80px;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  border-top: 1.5px solid #002922;
+  padding: 0 50px;
+  color: #002922;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+.about {
+  position: fixed;
+  color:white;
+  font:bolder;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 200px;
+  padding-block: 200px;
+}
+
+.worker{
+  top: 10%;
+  height: 200px;
+  width: 200px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 1100px;
+}
+
+.abouttext{
+  border:#ffffff
+}
+
+.button{
+  align-items: flex-start;
+  margin-left:1100px;
+}
+
+.background {
+  
+  position: fixed;
+  top: 100px; /* Adjusted from margin-top */
+  left: 0;
+  height: calc(100% - 100px); /* Adjusted to account for margin-top */
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-color: rgb(8, 188, 196);
+  padding-top: 5vw;
+  padding-bottom: 30vw;
+  z-index: 0;
+}
+
+.today{
+  position: absolute; /* Adjusted to absolute positioning */
+  top: 20%; /* Adjusted to vertically center */
+  right: 20px; /* Adjusted to move it to the right */
+  transform: translateY(-50%); /* Adjusted to vertically center */
+  font-size: 60px;
+  font:bolder;
+  color:white;
+}
+
+.homepagetext {
+  position: absolute; /* Adjusted to absolute positioning */
+  top: 30%; /* Adjusted to vertically center */
+  right: 20px; /* Adjusted to move it to the right */
+  transform: translateY(-50%); /* Adjusted to vertically center */
+  font-size: 45px;
+  color:white;
+}
+
+.homebutton {
+  position: absolute;  /* Adjusted to absolute positioning */
+  top: 500px; /* Adjusted to vertically center */
+  left: 2100px; /* Adjusted to move it to the left */
+  transform: translateY(-50%); /* Adjusted to vertically center */
+  color: #002922;
+  font-size: 150px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 2px solid black;
+  box-shadow: 8px 8px 0px #002922;
+  transition: all .1s;
+  cursor: pointer;
+  padding: 30px; /* Adjusted padding */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,18 +1,26 @@
 import { useState, useEffect, useContext, React } from "react";
 import { AuthContext } from "../context/auth.context";
-import { useParams } from "react-router-dom";
-import { Box, Container, Heading, Text, Button, Image } from "@chakra-ui/react";
+
+import { Box, Container, Heading, Text, Button, Image, Link } from "@chakra-ui/react";
+import { Link as ReactRouterLink, useParams } from "react-router-dom";
 import axios from 'axios';
+
+
 
 function MakeAppointment() {
     const [appointment, setAppointment] = useState([]);
     const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true)
 
     const { user } = useContext(AuthContext);
 
     const API_URL = "http://localhost:5005"
 
-    const params = useParams()
+    let params = useParams()
+
+    let userId = user._id;
+
+    //let userId = params
 
     useEffect(() => {
 
@@ -20,6 +28,7 @@ function MakeAppointment() {
 
         const weekDay = today.getDay();
 
+        let userId = user._id;
 
         //console.log(params)
 
@@ -28,15 +37,22 @@ function MakeAppointment() {
             .then((response) => {
                 //console.log(response.data)
                 setAppointment(response.data);
-                
+                setIsLoading(false)
             })
             .catch((error) => {
                 setError(error);
             });
-    },[]);
+    }, []);
 
     console.log(appointment)
 
+    if(isLoading) {
+        return(
+            <Box pt="500px">
+                Loading
+            </Box>
+        )
+    }
 
     return (
         <Box pt="500px" >
@@ -44,8 +60,22 @@ function MakeAppointment() {
                 {appointment.day}
             </Text>
             <Text>
+                {appointment.doc.doctor_name}
+            </Text>
+            <Text>
                 {user.name}
             </Text>
+            <Link
+                fontSize="20px"
+                as={ReactRouterLink}
+                to={`/user/${userId}`}
+                mr="55px"
+                color="black"
+                fontWeight='bold'
+                _hover={{ textDecoration: "none", color: "#000000" }}
+            >
+                Confirm Appointment
+            </Link>
         </Box>
     )
 }

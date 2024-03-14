@@ -1,16 +1,14 @@
 import React from 'react';
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import { Link as ReactRouterLink, useNavigate } from 'react-router-dom';
+import { Link as ReactRouterLink, useNavigate  } from 'react-router-dom';
 import { Box, Heading, Text, Button, Wrap, Card, Stack, CardBody, CardFooter, Divider } from "@chakra-ui/react";
 import axios from 'axios';
 
 function FindDoctor() {
     const [doctors, setDoctors] = useState([]);
-    const [error, setError] = useState(null);
-    const [trigger, setTrigger] = useState(false);
-    const [appointment, setAppointment] = useState([]);
-
+    //const [error, setError] = useState(null);
+    
     const { user } = useContext(AuthContext);
 
     const API_URL = "http://localhost:5005"
@@ -39,9 +37,9 @@ function FindDoctor() {
 
         let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-        const today2 = new Date();
+        const today = new Date();
 
-        let day = days[today2.getDay()];
+        let day = days[today.getDay()];
 
         let userId = user._id
 
@@ -50,14 +48,14 @@ function FindDoctor() {
         axios
             .post(`${API_URL}/api/appointments`, requestBody)
             .then((response) => {
-                
+                console.log(response.data)
                 navigate(`/makeappoint/${response.data}`);
             })
             .catch((error) => {
                 setError(error);
             });
     }
-
+    
     return (
         <Box width="100vw" bg="#07B8C0"  >
             <Wrap pt="100px" justify="center">

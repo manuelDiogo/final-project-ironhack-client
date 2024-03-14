@@ -18,13 +18,13 @@ import './App.css';
 function App() {
 
   return (
-    <Box>
+    <Box className="background">
       <Navbar />
       <Routes>
 
         <Route path="/" element={  <Homepage />  } />
 
-        <Route path="/about" element={ <IsAnon> <About /> </IsAnon> } />
+        <Route path="/about" element={ <About /> } />
 
         <Route path="/login" element={ <IsAnon> <Login /> </IsAnon> } />
 
@@ -32,9 +32,9 @@ function App() {
 
         <Route path="/finddoctor" element={<IsPrivate> <FindDoctor /> </IsPrivate> } />
 
-        <Route path="/makeappoint/:appointmentsId" element={<MakeAppointment />} />
+        <Route path="/makeappoint/:appointmentsId" element={ <IsPrivate> <MakeAppointment /> </IsPrivate>} />
 
-        <Route path="/user" element={<IsPrivate> <User /> </IsPrivate>} /> 
+        <Route path="/user/:userId" element={<IsPrivate> <User /> </IsPrivate>} /> 
 
         <Route path="*" element={<Error />} />
 
@@ -45,3 +45,5 @@ function App() {
 }
 
 export default App
+
+// className = "background"
