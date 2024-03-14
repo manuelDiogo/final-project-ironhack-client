@@ -18,9 +18,11 @@ import './App.css';
 function App() {
 
   return (
-    <Box className = "background"
+    <Box 
     >
       <Navbar />
+      <Box className="main-content" overflowY="auto" height="calc(100vh - 100px)">
+
       <Routes>
 
         <Route path="/" element={  <Homepage />  } />
@@ -40,6 +42,7 @@ function App() {
         <Route path="*" element={<Error />} />
 
       </Routes>
+      </Box>
       <Footer />
     </Box>
   )

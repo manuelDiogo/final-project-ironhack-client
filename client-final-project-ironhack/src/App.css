@@ -1,9 +1,9 @@
 .LoginPage {
-  padding-top: 500px;
+  padding-top: 100px;
 }
 
 .SignupPage {
-  padding-top: 500px;
+  padding-top: 100px;
 }
 
 .footer {
@@ -57,7 +57,6 @@
 }
 
 .background {
-  
   position: fixed;
   top: 100px; /* Adjusted from margin-top */
   left: 0;
@@ -112,7 +111,12 @@ body {
   padding: 0;
 }
 
-
+.main-content {
+  background-color: rgb(8, 188, 196);
+  padding-top: 100px; /* Adjusted to accommodate navbar */
+  overflow-y: auto; /* Allow vertical scrolling */
+  height: calc(100vh - 100px); /* Adjusted height to account for navbar */
+}
 
 
 
