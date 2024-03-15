@@ -62,7 +62,7 @@ function Navbar() {
                     as={ReactRouterLink}
                 >
                     <Flex alignItems="center">
-                        <Icon boxSize={14} />
+                        
                         <Text
                             fontSize="40px"
                             ml="5px"
@@ -145,3 +145,5 @@ function Navbar() {
 export default Navbar;
 
 //user &&
+
+//<Icon boxSize={14} />

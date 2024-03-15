@@ -11,7 +11,7 @@ function FindDoctor() {
     
     const { user } = useContext(AuthContext);
 
-    // const API_URL = "http://localhost:5005"
+    //const API_URL = "http://localhost:5005"
 
     const API_URL = "https://final-project-ironhack.onrender.com"
 
@@ -59,10 +59,11 @@ function FindDoctor() {
     }
 
     return (
-        <Box width="100vw" bg="#07B8C0"  >
+        <Box width="100vw" bg="#07B8C0"  pb="70px">
             <Wrap pt="100px" justify="center">
                 {doctors && doctors.map((one) => {
                     return (
+                        <Box bg="#07B8C0">
                         <Card
                             direction={{ base: 'column', sm: 'row' }}
                             overflow='hidden'
@@ -74,18 +75,18 @@ function FindDoctor() {
                         >
                             <Stack>
                                 <CardBody>
-                                    <Heading size='xl'>{one.doctor_name}</Heading>
+                                    <Heading  fontWeight="bold" fontSize="40px">{one.doctor_name}</Heading>
                                     <Divider />
-                                    <Text py='2'>
+                                    <Text pt="20px"  fontSize="20px">
                                         {one.specialty}
                                     </Text>
-                                    <Text py='2'>
-                                        {one.city}
-                                    </Text>
-                                    <Text py='2'>
+                                    <Text pt="10px"  fontSize="20px">
                                         {one.place_of_activity}
                                     </Text>
-                                    <Text py='2'>
+                                    <Text pt="10px"  fontSize="20px">
+                                        {one.city}
+                                    </Text>
+                                    <Text pt="10px"  fontSize="20px">
                                         {one.healthcare_insurance}
                                     </Text>
                                 </CardBody>
@@ -98,6 +99,7 @@ function FindDoctor() {
                                 </CardFooter>
                             </Stack>
                         </Card>
+                        </Box>
                     )
                 })}
             </Wrap>
