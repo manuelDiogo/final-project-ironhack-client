@@ -78,16 +78,16 @@ function FindDoctor() {
                                     <Heading  fontWeight="bold" fontSize="40px">{one.doctor_name}</Heading>
                                     <Divider />
                                     <Text pt="20px"  fontSize="20px">
-                                        {one.specialty}
+                                    <b>Specialty:</b> {one.specialty}
                                     </Text>
                                     <Text pt="10px"  fontSize="20px">
-                                        {one.place_of_activity}
+                                    <b>Place:</b> {one.place_of_activity}
                                     </Text>
                                     <Text pt="10px"  fontSize="20px">
-                                        {one.city}
+                                    <b>Location:</b> {one.city}
                                     </Text>
                                     <Text pt="10px"  fontSize="20px">
-                                        {one.healthcare_insurance}
+                                    <b>Insurance:</b> {one.healthcare_insurance}
                                     </Text>
                                 </CardBody>
                                 <CardFooter justify="center" >
