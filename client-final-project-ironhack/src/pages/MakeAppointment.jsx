@@ -15,7 +15,6 @@ function MakeAppointment() {
 
     const API_URL = "https://final-project-ironhack.onrender.com";
 
-
     useEffect(() => {
         axios.get(`${API_URL}/api/appointments/${appointmentsId}`)
             .then((response) => {
