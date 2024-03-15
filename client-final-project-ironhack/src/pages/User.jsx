@@ -79,7 +79,7 @@ function User() {
             <Flex pt="180px" direction="column" alignItems="center" mt={20} width="500px">
                 {thisUser.appointments &&
                     thisUser.appointments.map((appointment) => (
-                        <Flex width="100vw" bg="#07B8C0" justify="center" pb="70px">
+                        <Flex width="100vw" bg="#07B8C0" justify="center" pb="50px">
                         <Card
                         textAlign="left"
                             key={appointment._id}
