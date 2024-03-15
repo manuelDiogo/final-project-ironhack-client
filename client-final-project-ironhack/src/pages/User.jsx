@@ -61,7 +61,7 @@ function User() {
     }
 
     return (
-        <Box bg="#07B8C0" width="100vw" height="100vh" display="flex" justifyContent="center" pb="70px">
+        <Box bg="#07B8C0" width="100vw" height="100vh" display="flex" justifyContent="center" >
             <Box bg="#07B8C0" textAlign="center" position="fixed" width="100%" pt="65px" zIndex={1}>
             <Text bg="#07B8C0" color="white" fontWeight="bold" fontSize="50px">
                     Hello, {thisUser.name} {thisUser.surname}!
@@ -76,10 +76,10 @@ function User() {
                     </Text>
                 )}
             </Box>
-            <Flex pt="180px" direction="column" alignItems="center" mt={20} width="500px" pb="100px">
+            <Flex pt="180px" direction="column" alignItems="center" mt={20} width="500px">
                 {thisUser.appointments &&
                     thisUser.appointments.map((appointment) => (
-                        <Flex width="100vw" bg="#07B8C0" justify="center">
+                        <Flex width="100vw" bg="#07B8C0" justify="center" pb="100px">
                         <Card
                         textAlign="left"
                             key={appointment._id}
