@@ -18,7 +18,7 @@ function Homepage() {
                     <Text fontSize='50px' color="white">Today is <b>{day}</b>!</Text>
                     <Text pt="20px" fontSize='50px' color="white">Get A Doctor...</Text>
                     <Link to="/finddoctor" >
-                        <Button colorScheme='orange' textColor ="white" mt="20px" size='xxl' >    
+                        <Button colorScheme='orange' textColor ="white" mt="20px" width="100px">    
                         Today!
                         </Button>
                     </Link>
