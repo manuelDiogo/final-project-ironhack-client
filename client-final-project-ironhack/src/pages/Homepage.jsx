@@ -19,7 +19,7 @@ function Homepage() {
                     <Text pt="20px" fontSize='50px' color="white">Get A Doctor...</Text>
                     <Link to="/finddoctor" >
                         <Button colorScheme='yellow' mt="20px" size='lg' >    
-                        <Text fontSize='50px'  color="white" size="lg" fontWeight="bold" >Today!</Text>
+                        Today!
                         </Button>
                     </Link>
                 </Box>
@@ -29,6 +29,8 @@ function Homepage() {
 }
 
 export default Homepage;
+
+{/* <Text fontSize='50px'  color="white" size="lg" fontWeight="bold" >Today!</Text> */}
 
 
 
