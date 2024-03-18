@@ -16,9 +16,9 @@ function Homepage() {
                 </Box>
                 <Box textAlign="left">
                     <Text fontSize='50px' color="white">Today is <b>{day}</b>!</Text>
-                    <Text pt="20px" fontSize='50px' color="white">Get A Doctor...</Text>
+                    <Text pt="40px" fontSize='50px' color="white">Get A Doctor...</Text>
                     <Link to="/finddoctor" >
-                        <Button colorScheme='orange' textColor ="white" mt="20px" size="lg">    
+                        <Button colorScheme='orange' textColor ="white" mt="20px" size="lg" fontSize='50px'>    
                         Today!
                         </Button>
                     </Link>
