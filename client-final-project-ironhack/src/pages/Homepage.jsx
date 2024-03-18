@@ -18,8 +18,9 @@ function Homepage() {
                     <Text fontSize='50px' color="white">Today is <b>{day}</b>!</Text>
                     <Text pt="20px" fontSize='50px' color="white">Get A Doctor...</Text>
                     <Link to="/finddoctor">
-                        
+                        <Button>    
                         <Text fontSize='50px' pt="20px" className="homebutton" color="yellow" size="lg" fontWeight="bold">Today!</Text>
+                        </Button>
                     </Link>
                 </Box>
             </Flex>
