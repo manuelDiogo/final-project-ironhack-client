@@ -37,7 +37,7 @@ function App() {
 
         <Route path="/makeappoint/:appointmentsId" element={ <IsPrivate> <MakeAppointment /> </IsPrivate>} />
 
-        <Route path="/user" element={<IsPrivate> <User /> </IsPrivate>} /> 
+        <Route path="/user/:userId" element={<IsPrivate> <User /> </IsPrivate>} /> 
 
         <Route path="*" element={<Error />} />
 
@@ -52,4 +52,3 @@ export default App
 
 
 
-// <Route path="/makeappoint/:appointmentsId" element={ <IsPrivate> <MakeAppointment /> </IsPrivate>} />
