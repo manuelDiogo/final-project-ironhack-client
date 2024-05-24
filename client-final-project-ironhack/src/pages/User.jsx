@@ -67,27 +67,27 @@ function User() {
 
    
 
-    // const deleteAppointment = (e, appointmentId) => {
-    //     e.preventDefault();
-    //     axios
-    //         .delete(`${API_URL}/api/appointments/${appointmentId}`, {
-    //             headers: { Authorization: `Bearer ${storedToken}` }
-    //         })
-    //         .then(() => {
-    //             axios
-    //                 .get(`${API_URL}/api/user/${userId}`)
-    //                 .then((response) => {
-    //                     setThisUser(response.data);
-    //                     setIsLoading(false);
-    //                 })
-    //                 .catch((error) => {
-    //                     setError(error);
-    //                 });
-    //         })
-    //         .catch((error) => {
-    //             setError(error);
-    //         });
-    // };
+    const deleteAppointment = (e, appointmentId) => {
+        e.preventDefault();
+        axios
+            .delete(`${API_URL}/api/appointments/${appointmentId}`, {
+                headers: { Authorization: `Bearer ${storedToken}` }
+            })
+            .then(() => {
+                axios
+                    .get(`${API_URL}/api/user/${userId}`)
+                    .then((response) => {
+                        setThisUser(response.data);
+                        setIsLoading(false);
+                    })
+                    .catch((error) => {
+                        setError(error);
+                    });
+            })
+            .catch((error) => {
+                setError(error);
+            });
+    };
 
     // const deleteAppointment = (e, appointmentId) => {
     //     e.preventDefault();
@@ -115,32 +115,32 @@ function User() {
     //         });
     // };
 
-    const deleteAppointment = (e, appointmentId) => {
-        e.preventDefault();
-        axios
-            .delete(`${API_URL}/api/appointments/${appointmentId}`, {
-                headers: { Authorization: `Bearer ${storedToken}` }
-            })
-            .then(() => {
-                // Reload user data after deleting appointment
-                axios
-                    .get(`${API_URL}/api/user`, {
-                        headers: { Authorization: `Bearer ${storedToken}` }
-                    })
-                    .then((response) => {
-                        setThisUser(response.data);
-                        setIsLoading(false);
-                    })
-                    .catch((error) => {
-                        setError(error);
-                        setIsLoading(false); // Ensure loading state is false on error
-                    });
-            })
-            .catch((error) => {
-                setError(error);
-                setIsLoading(false); // Ensure loading state is false on error
-            });
-    };
+    // const deleteAppointment = (e, appointmentId) => {
+    //     e.preventDefault();
+    //     axios
+    //         .delete(`${API_URL}/api/appointments/${appointmentId}`, {
+    //             headers: { Authorization: `Bearer ${storedToken}` }
+    //         })
+    //         .then(() => {
+    //             // Reload user data after deleting appointment
+    //             axios
+    //                 .get(`${API_URL}/api/user`, {
+    //                     headers: { Authorization: `Bearer ${storedToken}` }
+    //                 })
+    //                 .then((response) => {
+    //                     setThisUser(response.data);
+    //                     setIsLoading(false);
+    //                 })
+    //                 .catch((error) => {
+    //                     setError(error);
+    //                     setIsLoading(false); // Ensure loading state is false on error
+    //                 });
+    //         })
+    //         .catch((error) => {
+    //             setError(error);
+    //             setIsLoading(false); // Ensure loading state is false on error
+    //         });
+    // };
 
     if (isLoading) {
         return <Box>Loading...</Box>;
