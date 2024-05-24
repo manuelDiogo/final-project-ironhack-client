@@ -22,6 +22,37 @@ function User() {
     const today = new Date();
     let day = days[today.getDay()];
 
+    useEffect(() => {
+        axios
+            .get(`${API_URL}/api/user`, {
+                headers: { Authorization: `Bearer ${storedToken}` }
+            })
+            .then((response) => {
+                setThisUser(response.data);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error fetching user data:", error); // Log the error to the console
+                setError(error);
+                setIsLoading(false); // Ensure loading state is false on error
+            });
+    }, [storedToken]); // Add storedToken as dependency
+
+     // useEffect(() => {
+    //     axios
+    //         .get(`${API_URL}/api/user`, {
+    //             headers: { Authorization: `Bearer ${storedToken}` }
+    //         })
+    //         .then((response) => {
+    //             setThisUser(response.data);
+    //             setIsLoading(false);
+    //         })
+    //         .catch((error) => {
+    //             setError(error);
+    //             setIsLoading(false); // Ensure loading state is false on error
+    //         });
+    // }, [storedToken]); // Add storedToken as dependency
+
     // useEffect(() => {
     //     axios
     //         .get(`${API_URL}/api/user/${userId}`)
@@ -34,20 +65,7 @@ function User() {
     //         });
     // }, []);
 
-    useEffect(() => {
-        axios
-            .get(`${API_URL}/api/user`, {
-                headers: { Authorization: `Bearer ${storedToken}` }
-            })
-            .then((response) => {
-                setThisUser(response.data);
-                setIsLoading(false);
-            })
-            .catch((error) => {
-                setError(error);
-                setIsLoading(false); // Ensure loading state is false on error
-            });
-    }, [storedToken]); // Add storedToken as dependency
+   
 
     // const deleteAppointment = (e, appointmentId) => {
     //     e.preventDefault();
