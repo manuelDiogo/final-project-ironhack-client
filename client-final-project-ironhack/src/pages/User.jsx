@@ -5,7 +5,7 @@ import { AuthContext } from '../context/auth.context';
 //import { useParams } from 'react-router-dom';
 
 function User() {
-    const [thisUser, setThisUser] = useState([]);
+    const [thisUser, setThisUser] = useState(null);
     const { user } = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -128,29 +128,85 @@ function User() {
         return <Box>Loading...</Box>;
     }
 
-    return (
-        <Box bg="#07B8C0" width="100vw" height="100vh" display="flex" justifyContent="center" >
-            <Box bg="#07B8C0" textAlign="center" position="fixed" width="100%" pt="65px" zIndex={1}>
+//     return (
+//         <Box bg="#07B8C0" width="100vw" height="100vh" display="flex" justifyContent="center" >
+//             <Box bg="#07B8C0" textAlign="center" position="fixed" width="100%" pt="65px" zIndex={1}>
+//             <Text bg="#07B8C0" color="white" fontWeight="bold" fontSize="50px">
+//                     Hello, {thisUser.name} {thisUser.surname}!
+//                 </Text>
+//                 {!thisUser.appointments || thisUser.appointments.length === 0 ? (
+//                     <Text bg="#07B8C0" color="white" fontSize="30px">
+//                         You have nothing scheduled today.
+//                     </Text>
+//                 ) : (
+//                     <Text bg="#07B8C0" color="white" fontSize="30px">
+//                         Today, {day}, you have the following scheduled appointments:
+//                     </Text>
+//                 )}
+//             </Box>
+//             <Flex pt="180px" direction="column" alignItems="center" mt={20} width="500px">
+//                 {thisUser.appointments &&
+//                     thisUser.appointments.map((appointment) => (
+//                         <Flex width="100vw" bg="#07B8C0" justify="center" pb="40px">
+//                         <Card
+//                         textAlign="left"
+//                             key={appointment._id}
+//                             bg="white"
+//                             p={4}
+//                             mb={4}
+//                             width="80%"
+//                             maxW="400px"
+//                             borderRadius="md" // Rounded corners
+//                             boxShadow="md" // Adding box shadow for depth
+//                         >
+//                             {/* <Text fontWeight="bold">{appointment.day}</Text> */}
+//                             <Text fontWeight="bold" fontSize="20px">{appointment.doc.doctor_name}</Text>
+//                             <Text pt="10px"  fontSize="15px"><b>Specialty: </b>{appointment.doc.specialty}</Text>
+//                             <Text pt="10px"  fontSize="15px"><b>Place: </b>{appointment.doc.place_of_activity}</Text>
+//                             <Text pt="10px" fontSize="15px"><b>Location: </b>{appointment.doc.city}</Text>
+//                             <Text pt="10px"  fontSize="15px"><b>Insurance: </b>{appointment.doc.healthcare_insurance}</Text>
+//                             <Button
+//                                 width="100%"
+//                                 mt={4}
+//                                 colorScheme="red"
+//                                 onClick={(e) => deleteAppointment(e, appointment._id)}
+//                             >
+//                                 Delete Appointment
+//                             </Button>
+//                         </Card>
+//                         </Flex>
+                        
+//                     ))}
+                    
+//             </Flex>
+//         </Box>
+//     );
+// }
+
+// export default User;
+
+return (
+    <Box bg="#07B8C0" width="100vw" height="100vh" display="flex" justifyContent="center">
+        <Box bg="#07B8C0" textAlign="center" position="fixed" width="100%" pt="65px" zIndex={1}>
             <Text bg="#07B8C0" color="white" fontWeight="bold" fontSize="50px">
-                    Hello, {thisUser.name} {thisUser.surname}!
+                Hello, {user.name} {user.surname}!
+            </Text>
+            {!thisUser || !thisUser.appointments || thisUser.appointments.length === 0 ? (
+                <Text bg="#07B8C0" color="white" fontSize="30px">
+                    You have nothing scheduled today.
                 </Text>
-                {!thisUser.appointments || thisUser.appointments.length === 0 ? (
-                    <Text bg="#07B8C0" color="white" fontSize="30px">
-                        You have nothing scheduled today.
-                    </Text>
-                ) : (
-                    <Text bg="#07B8C0" color="white" fontSize="30px">
-                        Today, {day}, you have the following scheduled appointments:
-                    </Text>
-                )}
-            </Box>
-            <Flex pt="180px" direction="column" alignItems="center" mt={20} width="500px">
-                {thisUser.appointments &&
-                    thisUser.appointments.map((appointment) => (
-                        <Flex width="100vw" bg="#07B8C0" justify="center" pb="40px">
+            ) : (
+                <Text bg="#07B8C0" color="white" fontSize="30px">
+                    Today, {day}, you have the following scheduled appointments:
+                </Text>
+            )}
+        </Box>
+        <Flex pt="180px" direction="column" alignItems="center" mt={20} width="500px">
+            {thisUser && thisUser.appointments &&
+                thisUser.appointments.map((appointment) => (
+                    <Flex width="100vw" bg="#07B8C0" justify="center" pb="40px" key={appointment._id}>
                         <Card
-                        textAlign="left"
-                            key={appointment._id}
+                            textAlign="left"
                             bg="white"
                             p={4}
                             mb={4}
@@ -159,12 +215,11 @@ function User() {
                             borderRadius="md" // Rounded corners
                             boxShadow="md" // Adding box shadow for depth
                         >
-                            {/* <Text fontWeight="bold">{appointment.day}</Text> */}
                             <Text fontWeight="bold" fontSize="20px">{appointment.doc.doctor_name}</Text>
-                            <Text pt="10px"  fontSize="15px"><b>Specialty: </b>{appointment.doc.specialty}</Text>
-                            <Text pt="10px"  fontSize="15px"><b>Place: </b>{appointment.doc.place_of_activity}</Text>
+                            <Text pt="10px" fontSize="15px"><b>Specialty: </b>{appointment.doc.specialty}</Text>
+                            <Text pt="10px" fontSize="15px"><b>Place: </b>{appointment.doc.place_of_activity}</Text>
                             <Text pt="10px" fontSize="15px"><b>Location: </b>{appointment.doc.city}</Text>
-                            <Text pt="10px"  fontSize="15px"><b>Insurance: </b>{appointment.doc.healthcare_insurance}</Text>
+                            <Text pt="10px" fontSize="15px"><b>Insurance: </b>{appointment.doc.healthcare_insurance}</Text>
                             <Button
                                 width="100%"
                                 mt={4}
@@ -174,13 +229,11 @@ function User() {
                                 Delete Appointment
                             </Button>
                         </Card>
-                        </Flex>
-                        
-                    ))}
-                    
-            </Flex>
-        </Box>
-    );
+                    </Flex>
+                ))}
+        </Flex>
+    </Box>
+);
 }
 
 export default User;
