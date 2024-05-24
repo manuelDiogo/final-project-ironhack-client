@@ -15,8 +15,8 @@ function User() {
 
     const API_URL = "https://final-project-ironhack.onrender.com"
 
-    //const params = useParams();
-    //let userId = user._id;
+    const params = useParams();
+    let userId = user._id;
 
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const today = new Date();
