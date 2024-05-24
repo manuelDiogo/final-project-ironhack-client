@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Box, Text, Button, Flex, Card } from '@chakra-ui/react';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
 
 function User() {
     const [thisUser, setThisUser] = useState([]);
@@ -15,8 +15,8 @@ function User() {
 
     const API_URL = "https://final-project-ironhack.onrender.com"
 
-    const params = useParams();
-    let userId = user._id;
+    //const params = useParams();
+    //let userId = user._id;
 
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const today = new Date();
@@ -71,6 +71,32 @@ function User() {
     //         });
     // };
 
+    // const deleteAppointment = (e, appointmentId) => {
+    //     e.preventDefault();
+    //     axios
+    //         .delete(`${API_URL}/api/appointments/${appointmentId}`, {
+    //             headers: { Authorization: `Bearer ${storedToken}` }
+    //         })
+    //         .then(() => {
+    //             axios
+    //                 .get(`${API_URL}/api/user`, {
+    //                     headers: { Authorization: `Bearer ${storedToken}` }
+    //                 })
+    //                 .then((response) => {
+    //                     setThisUser(response.data);
+    //                     setIsLoading(false);
+    //                 })
+    //                 .catch((error) => {
+    //                     setError(error);
+    //                     setIsLoading(false); // Ensure loading state is false on error
+    //                 });
+    //         })
+    //         .catch((error) => {
+    //             setError(error);
+    //             setIsLoading(false); // Ensure loading state is false on error
+    //         });
+    // };
+
     const deleteAppointment = (e, appointmentId) => {
         e.preventDefault();
         axios
@@ -78,6 +104,7 @@ function User() {
                 headers: { Authorization: `Bearer ${storedToken}` }
             })
             .then(() => {
+                // Reload user data after deleting appointment
                 axios
                     .get(`${API_URL}/api/user`, {
                         headers: { Authorization: `Bearer ${storedToken}` }
