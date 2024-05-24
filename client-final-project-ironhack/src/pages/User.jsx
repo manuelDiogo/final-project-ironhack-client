@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Box, Text, Button, Flex, Card } from '@chakra-ui/react';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
-//import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function User() {
     const [thisUser, setThisUser] = useState([]);
