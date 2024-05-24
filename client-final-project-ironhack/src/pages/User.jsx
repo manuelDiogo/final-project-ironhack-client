@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Box, Text, Button, Flex, Card } from '@chakra-ui/react'; // Importing Card component from Chakra UI
+import { Box, Text, Button, Flex, Card } from '@chakra-ui/react';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
 import { useParams } from 'react-router-dom';
@@ -22,17 +22,54 @@ function User() {
     const today = new Date();
     let day = days[today.getDay()];
 
+    // useEffect(() => {
+    //     axios
+    //         .get(`${API_URL}/api/user/${userId}`)
+    //         .then((response) => {
+    //             setThisUser(response.data);
+    //             setIsLoading(false);
+    //         })
+    //         .catch((error) => {
+    //             setError(error);
+    //         });
+    // }, []);
+
     useEffect(() => {
         axios
-            .get(`${API_URL}/api/user/${userId}`)
+            .get(`${API_URL}/api/user`, {
+                headers: { Authorization: `Bearer ${storedToken}` }
+            })
             .then((response) => {
                 setThisUser(response.data);
                 setIsLoading(false);
             })
             .catch((error) => {
                 setError(error);
+                setIsLoading(false); // Ensure loading state is false on error
             });
-    }, []);
+    }, [storedToken]); // Add storedToken as dependency
+
+    // const deleteAppointment = (e, appointmentId) => {
+    //     e.preventDefault();
+    //     axios
+    //         .delete(`${API_URL}/api/appointments/${appointmentId}`, {
+    //             headers: { Authorization: `Bearer ${storedToken}` }
+    //         })
+    //         .then(() => {
+    //             axios
+    //                 .get(`${API_URL}/api/user/${userId}`)
+    //                 .then((response) => {
+    //                     setThisUser(response.data);
+    //                     setIsLoading(false);
+    //                 })
+    //                 .catch((error) => {
+    //                     setError(error);
+    //                 });
+    //         })
+    //         .catch((error) => {
+    //             setError(error);
+    //         });
+    // };
 
     const deleteAppointment = (e, appointmentId) => {
         e.preventDefault();
@@ -42,17 +79,21 @@ function User() {
             })
             .then(() => {
                 axios
-                    .get(`${API_URL}/api/user/${userId}`)
+                    .get(`${API_URL}/api/user`, {
+                        headers: { Authorization: `Bearer ${storedToken}` }
+                    })
                     .then((response) => {
                         setThisUser(response.data);
                         setIsLoading(false);
                     })
                     .catch((error) => {
                         setError(error);
+                        setIsLoading(false); // Ensure loading state is false on error
                     });
             })
             .catch((error) => {
                 setError(error);
+                setIsLoading(false); // Ensure loading state is false on error
             });
     };
 
